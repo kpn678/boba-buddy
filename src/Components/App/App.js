@@ -1,10 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './App.css';
 import { Route, Link } from "react-router-dom";
 import ShopsDisplay from "../ShopsDisplay/ShopsDisplay";
 
 
 const App = () => {
+  const [shops, setShops] = useState([]);
+  const [error, setError] = useState('');
+
+  const getShops = async () => {
+    try {
+      const response = await fetch('https://dnvr-boba-buddy-api.herokuapp.com/');
+      const listOfShops = await response.json();
+      setShops(listOfShops);
+    } catch (error) {
+      setError(
+        "Sorry, we can't load this page right now."
+      );
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getShops();
+  }, []);
 
   return (
     <>
