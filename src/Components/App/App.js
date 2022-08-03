@@ -3,7 +3,6 @@ import './App.css';
 import { Route, Link } from "react-router-dom";
 import ShopsDisplay from "../ShopsDisplay/ShopsDisplay";
 
-
 const App = () => {
   const [shops, setShops] = useState([]);
   const [error, setError] = useState('');
@@ -39,22 +38,42 @@ const App = () => {
               <section className='about'>
                 <p className='description'>Welcome to Boba Buddies!</p>
               </section>
-              <section className='region-choices'>
-                <button className='1'>1</button>
-                <button className='2'>2</button>
-                <button className='3'>3</button>
-                <button className='4'>4</button>
-                <button className='5'>5</button>
-                <button className='6'>6</button>
-                <button className='7'>7</button>
-                <button className='8'>8</button>
+              <section className='regions'>
+                <h2>Denver Metro Area Regions:</h2>
+                <div className='region-choices'>
+                  <Link to='/shops/Northwest'>
+                    <button>Northwest: Arvada-Broomfield-Westminster</button>
+                  </Link>
+                  <Link to='/shops/West'>
+                    <button>West: Lakewood-Edgewater</button>
+                  </Link>
+                  <Link to='/shops/Southwest'>
+                    <button>Southwest: Littleton</button>
+                  </Link>
+                  <Link to='/shops/North'>
+                    <button>North: Northglenn-Thornton-Westminster</button>
+                  </Link>
+                  <Link to='/shops/Downtown'>
+                    <button>Downtown</button>
+                  </Link>
+                  <Link to='/shops/Central-Park'>
+                    <button>Central Park-Northfield</button>
+                  </Link>
+                  <Link to='/shops/East'>
+                    <button>East Denver-Aurora</button>
+                  </Link>
+                  <Link to='/shops/DTC'>
+                    <button>DTC-Southeast Aurora</button>
+                  </Link>
+                </div>
               </section>
             </section>
           )} 
         />
         <Route 
-          exact path='/:region' render={({ match }) => {
-            <ShopsDisplay regionName={match.params.region} />
+          exact path='/shops/:region' render={( {match} ) => {
+            const shopsToRender = shops.filter(shop => shop.region === match.params.region);
+            return <ShopsDisplay filteredShops={shopsToRender} />
           }}
         />
       </main>
