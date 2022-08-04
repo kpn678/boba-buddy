@@ -44,11 +44,11 @@ const App = () => {
         />
         <Route 
           exact path='/shops/:region' render={( {match} ) => {
-            if (match.params.region === 'all') {
-              return <ShopsDisplay filteredShops={shops} />
+            if (match.params.region === 'All') {
+              return <ShopsDisplay filteredShops={shops} region={match.params.region} />
             } else {
               const shopsToRender = shops.filter(shop => shop.region === match.params.region);
-              return <ShopsDisplay filteredShops={shopsToRender} />
+              return <ShopsDisplay filteredShops={shopsToRender} region={match.params.region} />
             }
           }}
         />

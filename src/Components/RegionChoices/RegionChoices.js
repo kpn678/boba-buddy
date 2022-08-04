@@ -8,28 +8,28 @@ const RegionChoices = () => {
       <h2>Denver Metro Area Regions:</h2>
       <div className='region-choices'>
         <Link to='/shops/Northwest'>
-          <button>Northwest: Arvada - Broomfield - Westminster</button>
+          <button className='region-btn'>Northwest: Arvada - Broomfield - Westminster</button>
         </Link>
         <Link to='/shops/West'>
-          <button>West Denver - Lakewood</button>
+          <button className='region-btn'>West Denver - Lakewood</button>
         </Link>
         <Link to='/shops/Southwest'>
-          <button>Southwest Denver - Littleton</button>
+          <button className='region-btn'>Southwest Denver - Littleton</button>
         </Link>
         <Link to='/shops/North'>
-          <button>North: Northglenn - Thornton - Westminster</button>
+          <button className='region-btn'>North: Northglenn - Thornton - Westminster</button>
         </Link>
         <Link to='/shops/Central'>
-          <button>Central and Downtown Denver</button>
+          <button className='region-btn'>Central and Downtown Denver</button>
         </Link>
         <Link to='/shops/East'>
-          <button>East Denver - Aurora</button>
+          <button className='region-btn'>East Denver - Aurora</button>
         </Link>
         <Link to='/shops/Southeast'>
-          <button>DTC - Southeast Aurora</button>
+          <button className='region-btn'>DTC - Southeast Aurora</button>
         </Link>
-        <Link to='/shops/all'>
-          <button>All Shops</button>
+        <Link to='/shops/All'>
+          <button className='region-btn'>All Shops</button>
         </Link>
       </div>
     </section>
