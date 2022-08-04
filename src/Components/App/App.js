@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import { Route, Link } from "react-router-dom";
-import ShopsDisplay from "../ShopsDisplay/ShopsDisplay";
-import RegionChoices from "../RegionChoices/RegionChoices";
+import { Route, Link } from 'react-router-dom';
+import ShopsDisplay from '../ShopsDisplay/ShopsDisplay';
+import RegionChoices from '../RegionChoices/RegionChoices';
 
 const App = () => {
   const [shops, setShops] = useState([]);
@@ -12,13 +12,12 @@ const App = () => {
     try {
       const response = await fetch('https://dnvr-boba-buddy-api.herokuapp.com/');
       const listOfShops = await response.json();
+      listOfShops.sort((a, b) => a.name.localeCompare(b.name));
       setShops(listOfShops);
     } catch (error) {
-      setError(
-        "Sorry, we can't load this page right now."
-      );
+      setError('Sorry, we can\'t load this page right now.');
       console.log(error);
-    }
+    };
   };
 
   useEffect(() => {
@@ -28,7 +27,7 @@ const App = () => {
   return (
     <>
       <nav>
-        <Link to={'/'} style={{ textDecoration: 'none' }}>
+        <Link to={'/'} style={{textDecoration: 'none'}}>
           <h1>BOBA BUDDY</h1>
         </Link>
       </nav>
@@ -45,8 +44,12 @@ const App = () => {
         />
         <Route 
           exact path='/shops/:region' render={( {match} ) => {
-            const shopsToRender = shops.filter(shop => shop.region === match.params.region);
-            return <ShopsDisplay filteredShops={shopsToRender} />
+            if (match.params.region === 'all') {
+              return <ShopsDisplay filteredShops={shops} />
+            } else {
+              const shopsToRender = shops.filter(shop => shop.region === match.params.region);
+              return <ShopsDisplay filteredShops={shopsToRender} />
+            }
           }}
         />
       </main>

@@ -1,9 +1,12 @@
+import React from "react";
 import './ShopCard.css';
 
-function ShopCard() {
+const ShopCard = ({ id, name, address, website }) => {
   return (
     <section className='individual-card'>
-      Hi
+      <h3>{name}</h3>
+      <p className='address'>{address}</p>
+      <p className='website'>{website}</p>
     </section>
   );
 }
