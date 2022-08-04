@@ -3,25 +3,24 @@ import './App.css';
 import { Route, Link } from 'react-router-dom';
 import ShopsDisplay from '../ShopsDisplay/ShopsDisplay';
 import RegionChoices from '../RegionChoices/RegionChoices';
+import { getShops } from '../../apiCalls';
 
 const App = () => {
   const [shops, setShops] = useState([]);
   const [error, setError] = useState('');
 
-  const getShops = async () => {
+  const updateShops = async () => {
     try {
-      const response = await fetch('https://dnvr-boba-buddy-api.herokuapp.com/');
-      const listOfShops = await response.json();
-      listOfShops.sort((a, b) => a.name.localeCompare(b.name));
+      const listOfShops = await getShops();
       setShops(listOfShops);
     } catch (error) {
-      setError('Sorry, we can\'t load this page right now.');
       console.log(error);
+      setError('error');
     };
   };
 
   useEffect(() => {
-    getShops();
+    updateShops();
   }, []);
 
   return (
