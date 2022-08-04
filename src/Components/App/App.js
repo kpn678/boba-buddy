@@ -13,9 +13,9 @@ const App = () => {
     try {
       const listOfShops = await getShops();
       setShops(listOfShops);
-    } catch (error) {
-      console.log(error);
-      setError('error');
+    } catch (e) {
+      console.log(e);
+      setError('Oops, something went wrong, please try again!');
     };
   };
 
@@ -25,33 +25,37 @@ const App = () => {
 
   return (
     <>
-      <nav>
-        <Link to={'/'} style={{textDecoration: 'none'}}>
-          <h1>BOBA BUDDY</h1>
-        </Link>
-      </nav>
-      <main>
-        <Route 
-          exact path='/' render={() => (
-            <section className='home'>
-              <section className='about'>
-                <p className='description'>Welcome to Boba Buddies!</p>
-              </section>
-              <RegionChoices />
-            </section>
-          )} 
-        />
-        <Route 
-          exact path='/shops/:region' render={( {match} ) => {
-            if (match.params.region === 'All') {
-              return <ShopsDisplay filteredShops={shops} region={match.params.region} />
-            } else {
-              const shopsToRender = shops.filter(shop => shop.region === match.params.region);
-              return <ShopsDisplay filteredShops={shopsToRender} region={match.params.region} />
-            }
-          }}
-        />
-      </main>
+      {error ? <h2 className='error-message'>{error}</h2> : 
+        <>
+          <nav>
+            <Link to={'/'} style={{textDecoration: 'none'}}>
+              <h1>BOBA BUDDY</h1>
+            </Link>
+          </nav>
+          <main>
+            <Route 
+              exact path='/' render={() => (
+                <section className='home'>
+                  <section className='about'>
+                    <p className='description'>Welcome to Boba Buddies!</p>
+                  </section>
+                  <RegionChoices />
+                </section>
+              )} 
+            />
+            <Route 
+              exact path='/shops/:region' render={( {match} ) => {
+                if (match.params.region === 'All') {
+                  return <ShopsDisplay filteredShops={shops} region={match.params.region} error={error} />
+                } else {
+                  const shopsToRender = shops.filter(shop => shop.region === match.params.region);
+                  return <ShopsDisplay filteredShops={shopsToRender} region={match.params.region} error={error} />
+                }
+              }}
+            />
+          </main>
+        </>
+      }
     </>
   );
 }
