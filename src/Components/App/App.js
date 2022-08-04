@@ -1,58 +1,68 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import ShopsDisplay from '../ShopsDisplay/ShopsDisplay';
 import RegionChoices from '../RegionChoices/RegionChoices';
+import { getShops } from '../../apiCalls';
 
 const App = () => {
   const [shops, setShops] = useState([]);
   const [error, setError] = useState('');
 
-  const getShops = async () => {
+  const updateShops = async () => {
     try {
-      const response = await fetch('https://dnvr-boba-buddy-api.herokuapp.com/');
-      const listOfShops = await response.json();
-      listOfShops.sort((a, b) => a.name.localeCompare(b.name));
+      const listOfShops = await getShops();
       setShops(listOfShops);
-    } catch (error) {
-      setError('Sorry, we can\'t load this page right now.');
-      console.log(error);
+    } catch (e) {
+      console.log(e);
+      setError('Oops, something went wrong, please try again!');
     };
   };
 
   useEffect(() => {
-    getShops();
+    updateShops();
   }, []);
 
   return (
     <>
-      <nav>
-        <Link to={'/'} style={{textDecoration: 'none'}}>
-          <h1>BOBA BUDDY</h1>
-        </Link>
-      </nav>
-      <main>
-        <Route 
-          exact path='/' render={() => (
-            <section className='home'>
-              <section className='about'>
-                <p className='description'>Welcome to Boba Buddies!</p>
-              </section>
-              <RegionChoices />
-            </section>
-          )} 
-        />
-        <Route 
-          exact path='/shops/:region' render={( {match} ) => {
-            if (match.params.region === 'All') {
-              return <ShopsDisplay filteredShops={shops} region={match.params.region} />
-            } else {
-              const shopsToRender = shops.filter(shop => shop.region === match.params.region);
-              return <ShopsDisplay filteredShops={shopsToRender} region={match.params.region} />
-            }
-          }}
-        />
-      </main>
+      {error ? <h2 className='error-message'>{error}</h2> : 
+        <>
+          <nav>
+            <Link to={'/'} style={{textDecoration: 'none'}}>
+              <h1>BOBA BUDDY</h1>
+            </Link>
+          </nav>
+          <main>
+            <Switch>
+              <Route 
+                exact path='/' render={() => (
+                  <section className='home'>
+                    <section className='about'>
+                      <p className='description'>Welcome to Boba Buddies!</p>
+                    </section>
+                    <RegionChoices />
+                  </section>
+                )} 
+              />
+              <Route 
+                path='/shops/:region' render={( {match} ) => {
+                  if (match.params.region === 'All') {
+                    return <ShopsDisplay filteredShops={shops} region={match.params.region} error={error} />
+                  } else {
+                    const shopsToRender = shops.filter(shop => shop.region === match.params.region);
+                    return <ShopsDisplay filteredShops={shopsToRender} region={match.params.region} error={error} />
+                  }
+                }}
+              />
+              <Route 
+                render={() => 
+                  <Redirect to={{pathname: "/"}} />
+                } 
+              />
+            </Switch>
+          </main>
+        </>
+      }
     </>
   );
 }
