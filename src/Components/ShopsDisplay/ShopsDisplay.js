@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import './ShopsDisplay.css';
 import ShopCard from '../ShopCard/ShopCard';
 
@@ -23,6 +24,21 @@ const ShopsDisplay = ({ filteredShops, region, error }) => {
       }
     </>
   );
-}
+};
 
 export default ShopsDisplay;
+
+const { number, string, shape, arrayOf } = PropTypes;
+
+const shop = shape({
+  id: number.isRequired,
+  name: string.isRequired,
+  address: string.isRequired,
+  website: string
+}).isRequired;
+
+ShopsDisplay.propTypes = {
+  region: string.isRequired,
+  error: string.isRequired,
+  filteredShops: arrayOf(shop).isRequired
+};
