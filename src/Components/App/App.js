@@ -39,7 +39,7 @@ const App = () => {
                 exact path='/' render={() => (
                   <section className='home'>
                     <section className='about'>
-                      <p className='description'>Welcome to Boba Buddies!</p>
+                      <p className='description'>Welcome to Boba Buddy!</p>
                     </section>
                     <RegionChoices />
                   </section>
