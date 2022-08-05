@@ -1,11 +1,25 @@
 describe('Visit homepage', () => {
   beforeEach(() => {
-    // cy.intercept('GET','https://dnvr-boba-buddy-api.herokuapp.com/', {
-    //   fixture: 'shops.json',
-    //   statusCode: 200
-    // })
+    cy.intercept('GET','https://dnvr-boba-buddy-api.herokuapp.com/', {
+      fixture: 'shops.json',
+      statusCode: 200
+    })
     cy.visit("http://localhost:3000/");
   });
+
+  it('Should show an error message if the server is down', (() => {
+    cy.intercept('GET', 'https://dnvr-boba-buddy-api.herokuapp.com/', {
+      statusCode: 500
+    })
+    .get('.error-message').contains('Oops, something went wrong, please try again!')
+  }));
+
+  it('Should show an error message if the page is not found', (() => {
+    cy.intercept('GET', 'https://dnvr-boba-buddy-api.herokuapp.com/', {
+      statusCode: 404
+    })
+    .get('.error-message').contains('Oops, something went wrong, please try again!')
+  }));
 
   it('Should display a header of BOBA BUDDY', () => {
     cy.get('h1').contains('BOBA BUDDY');
