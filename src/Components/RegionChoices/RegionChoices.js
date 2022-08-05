@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const RegionChoices = () => {
   return (
     <section className='regions'>
-      <h2>Denver Metro Area Regions:</h2>
+      <h2 className='regions-header'>Denver Metro Area Regions:</h2>
       <div className='region-choices'>
         <Link to='/shops/Northwest'>
           <button className='region-btn'>Northwest: Arvada - Broomfield - Westminster</button>
