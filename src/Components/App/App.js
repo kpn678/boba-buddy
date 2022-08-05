@@ -33,6 +33,7 @@ const App = () => {
             </Link>
           </nav>
           <main>
+            {shops.length === 0 && <h3>Page Loading...</h3>}
             <Switch>
               <Route 
                 exact path='/' render={() => (

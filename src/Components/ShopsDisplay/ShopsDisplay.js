@@ -10,6 +10,9 @@ const ShopsDisplay = ({ filteredShops, region, error }) => {
       id={shop.id}
       name={shop.name}
       address={shop.address}
+      yelp={shop.yelp}
+      facebook={shop.facebook}
+      instagram={shop.instagram}
       website={shop.website}
     />
   });
@@ -19,6 +22,7 @@ const ShopsDisplay = ({ filteredShops, region, error }) => {
       {error ? <h2 className='error-message'>{error}</h2> : 
         <section className='shops-container'>
           <h2>{region}</h2>
+          {filteredShops.length === 0 && <h3>Page Loading...</h3>}
           {allCards}
         </section>
       }
@@ -34,6 +38,9 @@ const shop = shape({
   id: number.isRequired,
   name: string.isRequired,
   address: string.isRequired,
+  yelp: string,
+  facebook: string,
+  instagram: string,
   website: string
 }).isRequired;
 
