@@ -1,0 +1,70 @@
+.regions {
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ebe1d8;
+}
+
+.regions-header {
+  margin-top: 8vh;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.region-choices {
+  margin-top: 5vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 1vw;
+  grid-row-gap: 10vh;
+  justify-items: center;
+}
+
+.region-btn {
+  border: 3px solid white;
+  border-radius: 4px;
+  padding: 10px;
+  width: 20vw;
+  transition: all .5s ease;
+  background-color : transparent;
+  cursor: pointer;
+  color: black;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1em;
+}
+
+.region-btn:hover {
+  color: #001F3F;
+  background-color: #fff;
+}
+
+@media screen and (min-width: 250px) {
+  .region-choices {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .region-btn {
+    width: 30vw;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .region-choices {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .region-btn {
+    height: 15vh;
+    width: 20vw;
+  }
+}
+
+@media screen and (min-width: 980px) {
+  .region-choices {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .region-btn {
+    height: 10vh;
+    width: 20vw;
+  }
+}

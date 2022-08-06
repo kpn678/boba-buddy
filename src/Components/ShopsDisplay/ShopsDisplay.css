@@ -1,0 +1,19 @@
+.region-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ebe1d8;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.region-name {
+  font-size: 2.5em;
+}
+
+.shops-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 5vw;
+  grid-row-gap: 12.5vh;
+  justify-items: center;
+}
