@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import './App.css';
 import ShopsDisplay from '../ShopsDisplay/ShopsDisplay';
 import RegionChoices from '../RegionChoices/RegionChoices';
 import { getShops } from '../../apiCalls';
@@ -33,13 +33,20 @@ const App = () => {
             </Link>
           </nav>
           <main>
-            {shops.length === 0 && <h3>Page Loading...</h3>}
+            {shops.length === 0 && <h3 className='loading-message'>Page Loading...</h3>}
             <Switch>
               <Route 
                 exact path='/' render={() => (
                   <section className='home'>
                     <section className='about'>
-                      <p className='description'>Welcome to Boba Buddy!</p>
+                      <h3 className='tagline'>Welcome to Boba Buddy, your guide to boba and milk tea in the Denver Metro Area!</h3>
+                      <p className='description'> 
+                        Prior to 2017, there were only about five boba shops in the metro area, give or take. Now, there are well over
+                        60 shops in the area! Even with the abundance of shops, it can be hard to locate a shop and its information or
+                        find relevant results. This guide is designed to be a comprehensive (or as close as possible to comprehensive) 
+                        list of all shops that have a storefront and feature boba or milk tea as a predominant part of their menu. 
+                        What are you waiting for, go get some boba or tea!
+                      </p>
                     </section>
                     <RegionChoices />
                   </section>
@@ -66,6 +73,6 @@ const App = () => {
       }
     </>
   );
-}
+};
 
 export default App;
