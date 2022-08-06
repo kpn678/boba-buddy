@@ -20,10 +20,11 @@ const ShopsDisplay = ({ filteredShops, region, error }) => {
   return (
     <>
       {error ? <h2 className='error-message'>{error}</h2> : 
-        <section className='shops-container'>
-          <h2>{region}</h2>
-          {filteredShops.length === 0 && <h3>Page Loading...</h3>}
-          {allCards}
+        <section className='region-page'>
+          <h2 className='region-name'>{region}</h2>
+          <section className='shops-container'>
+            {allCards}
+          </section>
         </section>
       }
     </>

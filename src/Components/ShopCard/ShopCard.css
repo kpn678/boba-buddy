@@ -1,0 +1,10 @@
+.individual-card {
+  width: 25vw;
+  text-align: center;
+}
+
+.links-container {
+  /* border: 1px solid; */
+  display: flex;
+  justify-content: space-evenly;
+}
