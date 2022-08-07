@@ -25,8 +25,9 @@ describe('Visit homepage', () => {
     cy.get('h1').contains('BOBA BUDDY');
   });
 
-  it.skip('Should display a description of the page', () => {
-    cy.get('.description').contains('Welcome to Boba Buddy!');
+  it.only('Should display a description of the page', () => {
+    cy.get('.tagline').contains('Welcome to Boba Buddy, your guide to boba and milk tea in the Denver Metro Area!');
+    cy.get('.description').should('be.visible');
   });
 
   it('Should display a section with a list of different regions to pick from', () => {
