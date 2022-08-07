@@ -9,6 +9,8 @@ import { getShops } from '../../apiCalls';
 const App = () => {
   const [shops, setShops] = useState([]);
   const [error, setError] = useState('');
+  const [searchValue, setSearchValue] = useState('');
+  const [searchedShops, setSearchedShops] = useState([]);
 
   const updateShops = async () => {
     try {
@@ -24,6 +26,11 @@ const App = () => {
     updateShops();
   }, []);
 
+  const handleSearch = (event) => {
+    setSearchValue(event.target.value);
+    setSearchedShops(shops.filter(shop => shop.name.toUpperCase().includes(event.target.value.toUpperCase())));
+  };
+
   return (
     <>
       {error ? <h2 className='error-message'>{error}</h2> : 
@@ -32,7 +39,7 @@ const App = () => {
             <Link to={'/'} style={{textDecoration: 'none'}}>
               <h1>BOBA BUDDY</h1>
             </Link>
-            <SearchBar />
+            <SearchBar handleSearch={handleSearch} searchValue={searchValue} />
           </nav>
           <main>
             {shops.length === 0 ? <h2 className='loading-message'>Page Loading...</h2> : 
