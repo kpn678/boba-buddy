@@ -25,7 +25,7 @@ describe('Visit homepage', () => {
     cy.get('h1').contains('BOBA BUDDY');
   });
 
-  it('Should display a description of the page', () => {
+  it.skip('Should display a description of the page', () => {
     cy.get('.description').contains('Welcome to Boba Buddy!');
   });
 
@@ -35,8 +35,19 @@ describe('Visit homepage', () => {
     cy.get('.region-btn').should('have.length', 8);
   });
 
+  it('Should allow for a list of boba shops to pop up if it matches what is typed into search bar', () => {
+    cy.get('.shops-search-bar').type('Sharetea');
+    cy.get('.individual-card').should('have.length', 4);
+  });
+
+  it('Should return to original home page if input is cleared', () => {
+    cy.get('.shops-search-bar').type('Sharetea').clear();
+    cy.get('.home');
+  });
+
   it('Should navigate to specific region page once button is clicked', () => {
     cy.get('.region-btn').eq(4).click();
     cy.url().should('eq', 'http://localhost:3000/shops/Central');
   });
+
 });
