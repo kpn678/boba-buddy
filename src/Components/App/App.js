@@ -48,7 +48,7 @@ const App = (props) => {
             {path === '/' && <SearchBar handleSearch={handleSearch} searchValue={searchValue} />}
           </nav>
           <main>
-            {shops.length === 0 ? <h2 className='loading-message'>Page Loading...</h2> : 
+            {shops.length === 0 ? <h2 className='loading-message'>🧋 Page Loading🧋</h2> : 
               <Switch>
                 <Route 
                   exact path='/' render={() => {

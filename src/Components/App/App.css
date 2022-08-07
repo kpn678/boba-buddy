@@ -14,6 +14,13 @@ h1 {
   color: white;
 }
 
+.error-message,
+.loading-message {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 2em;
+  text-align: center;
+}
+
 .about {
   margin-top: 0vh;
   padding-top: 1vh;
