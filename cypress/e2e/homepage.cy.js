@@ -25,7 +25,7 @@ describe('Visit homepage', () => {
     cy.get('h1').contains('BOBA BUDDY');
   });
 
-  it.only('Should display a description of the page', () => {
+  it('Should display a description of the page', () => {
     cy.get('.tagline').contains('Welcome to Boba Buddy, your guide to boba and milk tea in the Denver Metro Area!');
     cy.get('.description').should('be.visible');
   });
@@ -50,5 +50,4 @@ describe('Visit homepage', () => {
     cy.get('.region-btn').eq(4).click();
     cy.url().should('eq', 'http://localhost:3000/shops/Central');
   });
-
 });
