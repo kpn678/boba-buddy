@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import './SearchBar.css';
 
 const SearchBar = ({ handleSearch, searchValue }) => {
@@ -20,3 +21,10 @@ const SearchBar = ({ handleSearch, searchValue }) => {
 };
 
 export default SearchBar;
+
+const { func, string } = PropTypes;
+
+SearchBar.propTypes = {
+  handleSearch: func.isRequired,
+  searchValue: string.isRequired,
+};

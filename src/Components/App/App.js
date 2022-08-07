@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Route, Link, Switch, Redirect, withRouter } from 'react-router-dom';
 import './App.css';
 import ShopsDisplay from '../ShopsDisplay/ShopsDisplay';
@@ -44,7 +45,7 @@ const App = (props) => {
             <Link to={'/'} style={{textDecoration: 'none'}}>
               <h1 onClick={() => resetSearch()}>BOBA BUDDY</h1>
             </Link>
-            {path === "/" && <SearchBar handleSearch={handleSearch} searchValue={searchValue} />}
+            {path === '/' && <SearchBar handleSearch={handleSearch} searchValue={searchValue} />}
           </nav>
           <main>
             {shops.length === 0 ? <h2 className='loading-message'>Page Loading...</h2> : 
@@ -97,3 +98,9 @@ const App = (props) => {
 };
 
 export default withRouter(App);
+
+const { string } = PropTypes;
+
+App.propTypes = {
+  path: string
+};
