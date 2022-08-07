@@ -22,6 +22,10 @@
   align-items: center;
 }
 
+.website {
+  padding-top: 0.5vh;
+}
+
 .yelp:hover, 
 .facebook:hover,
 .instagram:hover,
