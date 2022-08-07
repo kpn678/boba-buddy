@@ -3,6 +3,7 @@ import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import ShopsDisplay from '../ShopsDisplay/ShopsDisplay';
 import RegionChoices from '../RegionChoices/RegionChoices';
+import SearchBar from '../SearchBar/SearchBar';
 import { getShops } from '../../apiCalls';
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
             <Link to={'/'} style={{textDecoration: 'none'}}>
               <h1>BOBA BUDDY</h1>
             </Link>
+            <SearchBar />
           </nav>
           <main>
             {shops.length === 0 ? <h2 className='loading-message'>Page Loading...</h2> : 
