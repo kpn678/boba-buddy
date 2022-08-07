@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import { Route, Link, Switch, Redirect, withRouter } from 'react-router-dom';
 import './App.css';
 import ShopsDisplay from '../ShopsDisplay/ShopsDisplay';
 import RegionChoices from '../RegionChoices/RegionChoices';
 import SearchBar from '../SearchBar/SearchBar';
 import { getShops } from '../../apiCalls';
 
-const App = () => {
+const App = (props) => {
+  const path = props.location.pathname;
   const [shops, setShops] = useState([]);
   const [error, setError] = useState('');
   const [searchValue, setSearchValue] = useState('');
@@ -43,7 +44,7 @@ const App = () => {
             <Link to={'/'} style={{textDecoration: 'none'}}>
               <h1 onClick={() => resetSearch()}>BOBA BUDDY</h1>
             </Link>
-            <SearchBar handleSearch={handleSearch} searchValue={searchValue} />
+            {path === "/" && <SearchBar handleSearch={handleSearch} searchValue={searchValue} />}
           </nav>
           <main>
             {shops.length === 0 ? <h2 className='loading-message'>Page Loading...</h2> : 
@@ -95,4 +96,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default withRouter(App);
