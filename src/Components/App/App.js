@@ -41,7 +41,7 @@ const App = () => {
         <>
           <nav>
             <Link to={'/'} style={{textDecoration: 'none'}}>
-              <h1>BOBA BUDDY</h1>
+              <h1 onClick={() => resetSearch()}>BOBA BUDDY</h1>
             </Link>
             <SearchBar handleSearch={handleSearch} searchValue={searchValue} />
           </nav>
@@ -50,7 +50,7 @@ const App = () => {
               <Switch>
                 <Route 
                   exact path='/' render={() => {
-                    if (searchedShops.length !== 0) {
+                    if (searchedShops.length !== 0 && searchValue !== '') {
                       return <ShopsDisplay filteredShops={searchedShops} error={error} />
                     } else {
                       return (
