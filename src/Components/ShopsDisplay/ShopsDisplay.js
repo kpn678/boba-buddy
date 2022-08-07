@@ -46,7 +46,7 @@ const shop = shape({
 }).isRequired;
 
 ShopsDisplay.propTypes = {
-  region: string.isRequired,
+  region: string,
   error: string.isRequired,
   filteredShops: arrayOf(shop).isRequired
 };
