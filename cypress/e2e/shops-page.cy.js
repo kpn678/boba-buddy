@@ -20,7 +20,6 @@ describe('Visit region page', () => {
     })
     .get('.error-message').contains('Oops, something went wrong, please try again!');
   }));
-
   
   it('Should display a header of BOBA BUDDY', () => {
     cy.get('h1').contains('BOBA BUDDY');
@@ -55,4 +54,9 @@ describe('Visit region page', () => {
       });
     });
   });
+
+  it('Should navigate back to homepage if the header is clicked on', () => {
+    cy.get('h1').click();
+    cy.url().should('eq', 'http://localhost:3000/');
+  })
 });
