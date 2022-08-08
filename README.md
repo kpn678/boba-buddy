@@ -5,7 +5,7 @@
 
 #### Goals
 - Demonstrate competence with React, Router, asynchornous JavaScript, and end-to-end testing with Cypress
-- Implement self-learning goals such as building an API in Express and implementing React Hooks and Async/await
+- Implement self-learning goals such as building an [API in Express](https://github.com/kpn678/boba-buddy-api) and implementing React Hooks and Async/await
 - Work within constraints to deliver a product that solves a unique problem for a specific audience
 
 #### Project Specs
