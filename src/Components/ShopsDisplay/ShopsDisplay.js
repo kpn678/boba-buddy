@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from 'prop-types';
 import './ShopsDisplay.css';
 import ShopCard from '../ShopCard/ShopCard';
@@ -17,6 +17,10 @@ const ShopsDisplay = ({ filteredShops, region, error }) => {
     />
   });
   
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, []);
+
   return (
     <>
       {error ? <h2 className='error-message'>{error}</h2> : 
