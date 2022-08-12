@@ -34,7 +34,7 @@ const App = (props) => {
   };
 
  const resetSearch = () => {
-  setSearchValue('');
+    setSearchValue('');
  };
 
   return (
@@ -54,6 +54,8 @@ const App = (props) => {
                   exact path='/' render={() => {
                     if (searchedShops.length !== 0 && searchValue !== '') {
                       return <ShopsDisplay filteredShops={searchedShops} error={error} />
+                    } else if (searchedShops.length === 0 && searchValue !== '') {
+                      return <h2 className="search-message">No shops match your search!</h2>
                     } else {
                       return (
                         <Homepage />
