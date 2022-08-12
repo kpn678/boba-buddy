@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from 'prop-types';
 import './Homepage.css';
 import RegionChoices from '../RegionChoices/RegionChoices';
 
