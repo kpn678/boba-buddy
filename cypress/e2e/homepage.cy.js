@@ -41,6 +41,11 @@ describe('Visit homepage', () => {
     cy.get('.individual-card').should('have.length', 4);
   });
 
+  it('Should display a message if no boba shops match the user\'s search', () => {
+    cy.get('.shops-search-bar').type('Faketea');
+    cy.get('.search-message').contains('No shops match your search!')
+  });
+
   it('Should return to original home page if input is cleared', () => {
     cy.get('.shops-search-bar').type('Sharetea').clear();
     cy.get('.home');
