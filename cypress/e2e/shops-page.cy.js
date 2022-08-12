@@ -3,22 +3,22 @@ describe('Visit region page', () => {
     cy.intercept('GET', 'https://dnvr-boba-buddy-api.herokuapp.com/', {
       fixture: 'shops.json',
       statusCode: 200
-    }); 
-    cy.visit('http://localhost:3000/shops/Central');
+    }) 
+      .visit('http://localhost:3000/shops/Central');
   });
 
   it('Should show an error message if the server is down', (() => {
     cy.intercept('GET', 'https://dnvr-boba-buddy-api.herokuapp.com/', {
       statusCode: 500
     })
-    .get('.error-message').contains('Oops, something went wrong, please try again!');
+      .get('.error-message').contains('Oops, something went wrong, please try again!');
   }));
 
   it('Should show an error message if the page is not found', (() => {
     cy.intercept('GET', 'https://dnvr-boba-buddy-api.herokuapp.com/', {
       statusCode: 404
     })
-    .get('.error-message').contains('Oops, something went wrong, please try again!');
+      .get('.error-message').contains('Oops, something went wrong, please try again!');
   }));
   
   it('Should display a header of BOBA BUDDY', () => {
@@ -33,8 +33,8 @@ describe('Visit region page', () => {
 
   it('Should display each shop\'s name and address', () => {
     cy.get('.shops-container').children('.individual-card').each(() => {
-      cy.get('.name').should('exist');
-      cy.get('.address').should('exist');
+      cy.get('.name').should('exist')
+        .get('.address').should('exist');
     });
   });
 
@@ -42,21 +42,21 @@ describe('Visit region page', () => {
     cy.get('.individual-card').eq(9).within(() => {
       cy.get('.yelp').should('have.attr', 'href', 'https://www.yelp.com/biz/milk-tea-people-denver').then(link => {
         cy.request(link.prop('href')).its('status').should('eq', 200);
-      });
-      cy.get('.facebook').should('have.attr', 'href', 'https://www.facebook.com/MilkTeaPeople/').then(link => {
+      })
+        .get('.facebook').should('have.attr', 'href', 'https://www.facebook.com/MilkTeaPeople/').then(link => {
         cy.request(link.prop('href')).its('status').should('eq', 200);
-      });
-      cy.get('.instagram').should('have.attr', 'href', 'https://www.instagram.com/milkteapeople/?hl=en').then(link => {
+      })
+        .get('.instagram').should('have.attr', 'href', 'https://www.instagram.com/milkteapeople/?hl=en').then(link => {
         cy.request(link.prop('href')).its('status').should('eq', 200);
-      });
-      cy.get('.website').should('have.attr', 'href', 'https://www.milkteapeople.com/').then(link => {
+      })
+        .get('.website').should('have.attr', 'href', 'https://www.milkteapeople.com/').then(link => {
         cy.request(link.prop('href')).its('status').should('eq', 200);
       });
     });
   });
 
   it('Should navigate back to homepage if the header is clicked on', () => {
-    cy.get('h1').click();
-    cy.url().should('eq', 'http://localhost:3000/');
-  })
+    cy.get('h1').click()
+      .url().should('eq', 'http://localhost:3000/');
+  });
 });
