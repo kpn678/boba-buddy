@@ -1,0 +1,27 @@
+.about {
+  margin-top: 0vh;
+  padding-top: 1vh;
+  height: 55vh;
+  background-image: url('./../../images/boba.jpg');
+  background-size: 100%, auto;
+  background-position: center; 
+}
+
+.tagline,
+.description {
+  margin-left: 6.5vw;
+  width: 40%;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.tagline {
+  margin-top: 8vh;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.description {
+  text-align: left;
+  font-size: 1.1em;
+  line-height: 1.4;
+}
