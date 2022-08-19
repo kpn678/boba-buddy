@@ -34,3 +34,25 @@
 .website:hover {
   transform: scale(1.2);
 }
+
+@media screen and (max-width: 800px) {
+  .individual-card {
+    font-size: 0.9em;
+  }
+
+  .links-container img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .individual-card {
+    font-size: 0.75em;
+  }
+
+  .links-container img {
+    width: 17.5px;
+    height: 17.5px;
+  }
+}

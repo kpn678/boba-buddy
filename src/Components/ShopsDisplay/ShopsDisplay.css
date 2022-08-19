@@ -18,3 +18,21 @@
   grid-row-gap: 12.5vh;
   justify-items: center;
 }
+
+@media screen and (max-width: 800px) {
+  .region-name {
+    font-size: 1.5em;
+  }
+
+  .shops-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 15vw;
+    grid-row-gap: 20vh;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .shops-container {
+    grid-row-gap: 10vh;
+  }
+}
