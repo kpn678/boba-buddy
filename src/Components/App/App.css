@@ -22,4 +22,14 @@ h1 {
   text-align: center;
 }
 
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2em;
+  }
 
+  .error-message,
+  .loading-message,
+  .search-message {
+    font-size: 1em;
+  }
+}
