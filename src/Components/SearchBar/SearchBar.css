@@ -12,7 +12,7 @@ input {
 
 @media screen and (max-width: 600px) {
   form {
-    margin-right: 3vw;
-    width: 35vw;
+    height: 2vh;
+    width: 40vw;
   }
 }

@@ -33,10 +33,6 @@
     background-size: cover;
   }
 
-  /* .tagline {
-    font-size: 1.25em;
-  } */
-
   .description {
     font-size: 1em;
   }
@@ -49,5 +45,15 @@
 
   .description {
     font-size: 0.75em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .about {
+    height: 80vh;
+  }
+
+  .tagline {
+    font-size: 1em;
   }
 }
