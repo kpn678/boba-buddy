@@ -48,7 +48,7 @@
 
 @media screen and (max-width: 500px) {
   .individual-card {
-    height: 40vh;
+    height: 35vh;
     font-size: 0.75em;
   }
 
