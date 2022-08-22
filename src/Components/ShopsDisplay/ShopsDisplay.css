@@ -33,6 +33,6 @@
 
 @media screen and (max-width: 500px) {
   .shops-container {
-    grid-row-gap: 8vh;
+    grid-row-gap: 5vh;
   }
 }
