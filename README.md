@@ -12,7 +12,7 @@
 The rubric and specs can be found [here](https://frontend.turing.edu/projects/module-3/showcase.html).
 
 ## Deployed Links
-- [Website Link](https://dnvr-boba-buddy.herokuapp.com/)
+- [Website Link](https://boba-buddy.vercel.app/)
 - [API Link](https://dnvr-boba-buddy-api.herokuapp.com/)
 
 ## Set Up
