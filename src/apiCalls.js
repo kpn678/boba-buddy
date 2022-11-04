@@ -1,5 +1,5 @@
 const getShops = async () => {
-  const response = await fetch('https://dnvr-boba-buddy-api.herokuapp.com/');
+  const response = await fetch('https://boba-buddy-api.up.railway.app/');
   if (!response.ok) {
     throw new Error('Unable to retrieve data. Please try again!')
   }
