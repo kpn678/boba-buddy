@@ -12,8 +12,8 @@
 The rubric and specs can be found [here](https://frontend.turing.edu/projects/module-3/showcase.html).
 
 ## Deployed Links
-- [Website Link](https://dnvr-boba-buddy.herokuapp.com/)
-- [API Link](https://dnvr-boba-buddy-api.herokuapp.com/)
+- [Website Link](https://boba-buddy.vercel.app/)
+- [API Link](https://boba-buddy-api.up.railway.app/)
 
 ## Set Up
 1. Fork this [repository](https://github.com/kpn678/boba-buddy), and clone it into your local machine.
