@@ -32,15 +32,16 @@ The rubric and specs can be found [here](https://frontend.turing.edu/projects/mo
 ![Search Bar](src/images/Boba-Buddy-3.gif)
 
 ## Technologies Implemented
-- Javascript/HTML (JSX)
+- Javascript
+- HTML
 - CSS
 - React
 - React Router
 - Cypress
+- Node.js
 - Express
 
 ## Future Directions
-- Improve mobile responsiveness
 - Add save, local storage, and delete functionalities so the user can add shops they want to visit to their own list and delete them as they want
 - Use Leaflet or Google Maps libraries to include an interactive map(s) on the website
 
